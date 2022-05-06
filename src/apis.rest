@@ -1,0 +1,206 @@
+@baseUrl = http://localhost:8080
+
+###管理员注册
+POST {{baseUrl}}/adminRegister
+Content-Type: application/json
+
+{
+    "userID":"admin",
+    "password":"1111111",
+    "confirmPassword":"1111111"
+}
+
+###管理员登录
+POST {{baseUrl}}/admin/login
+Content-Type: application/json
+
+{
+    "userID":"admin",
+    "password":"1111111"
+}
+
+### 获取管理员信息
+GET {{baseUrl}}/getAdminInfo
+
+### 管理员退出登录
+GET {{baseUrl}}/admin/logout
+
+### 管理员统计学生成绩
+GET {{baseUrl}}/adminSearchAllScore/1/3
+
+###管理员统计论文信息
+GET {{baseUrl}}/statisticsGraduationInfo/1/3
+
+###学生注册
+POST {{baseUrl}}/studentRegister
+Content-Type: application/json
+
+{
+    "studentName":"陈康",
+    "userID":"1820070129",
+    "password":"ck200072",
+    "academy":"人工智能学院",
+    "specialized":"软件工程",
+    "Degree":"本科",
+    "phone":"13111",
+    "mailbox":"13117"
+}
+
+### 学生登录
+POST {{baseUrl}}/student/login
+Content-Type: application/json
+
+{
+    "userID":"1820070129",
+    "password":"ck200072"
+}
+
+### 获取学生信息
+GET {{baseUrl}}/getStudentInfo
+
+### 修改学生个人信息
+PUT  {{baseUrl}}/editStudentInfo
+Content-Type: application/json
+
+{
+    "studentName":"加菲猫",
+    "phone":"12312",
+    "mailbox":"123567@qq.com",
+    "newPassword":"1234567",
+    "confirmNewPassword":"1234567"
+}
+
+### 学生退出登录
+GET {{baseUrl}}/student/logout
+
+### 学生查询选题
+GET {{baseUrl}}/searchTpoic/电影管理系统
+
+### 学生分页查询选题
+GET {{baseUrl}}/studentSearchAllTpoic/2/3
+
+### 学生勾选选题
+GET {{baseUrl}}/chooseTpoic/1
+
+### 学生取消勾选选题
+GET {{baseUrl}}/cancleTpoic/1
+
+### 学生查询成绩
+GET {{baseUrl}}/studentSearchScore/1820070129
+### 学生上传开题报告
+POST {{baseUrl}}/student/graduationUpload
+
+###获取论文信息
+GET {{baseUrl}}/graduationInfo/1820070129
+
+
+### 教师注册
+POST {{baseUrl}}/teacherRegister
+Content-Type: application/json
+
+{
+    "teacherName":"甘老师",
+    "userID":"12021312",
+    "password":"111111",
+    "academy":"人工智能",
+    "jobTitle":"教授",
+    "phone":"12321321",
+    "mailbox":"12321382@qq.com"
+}
+
+### 教师登录
+POST {{baseUrl}}/teacher/login
+Content-Type: application/json
+
+{
+    "userID":"12021312",
+    "password":"111111"
+}
+
+### 获取教师信息
+GET {{baseUrl}}/getTeacherInfo
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEyMDIxMzEyLCJpYXQiOjE2NDk4Mzc0MTAsImV4cCI6MTY5MzAzNzQxMH0.Y9R4prAKSl6vUIHAkrM-lh8Lb4tAG6rUEiMQgUJkjBQ
+### 修改教师个人信息
+PUT  {{baseUrl}}/editTeacherInfo
+Content-Type: application/json
+
+{
+    "teacherName":"陈老师",
+    "phone":"110",
+    "mailbox":"123567@qq.com",
+    "newPassword":"1234567",
+    "confirmNewPassword":"1234567"
+}
+
+### 教师退出登录
+GET {{baseUrl}}/teacher/logout
+
+### 教师创建选题
+POST {{baseUrl}}/teacher/createTpoic
+Content-Type: application/json
+
+{
+    "title":"啊是巨大管理系统",
+    "openingTeacher":"甘老师",
+    "specialized":"软件工程"
+}
+
+###教师修改选题
+PUT {{baseUrl}}/editTpoic/1
+Content-Type: application/json
+
+{
+    "title":"开题管理系统",
+    "openingTeacher":"甘老师",
+    "specialized":"物联网"
+}
+### 教师删除选题
+DELETE {{baseUrl}}/deleteTpoic/1
+
+
+###教师分页查询选题
+GET {{baseUrl}}/teacherSearchAllScore/1/3
+
+### 教师创建成绩
+POST {{baseUrl}}/createScore/1820070129
+Content-Type: application/json
+
+{
+      "graduateScore":"80",
+      "deviseScore":"80",
+      "ReplyScore":"90",
+      "totalScore":"82"
+}
+
+###教师修改成绩
+PUT {{baseUrl}}/editScore/1820070129
+Content-Type: application/json
+
+{
+    "graduateScore":"100", 
+    "deviseScore":"100", 
+    "ReplyScore":"100",
+    "totalScore":"100"
+}
+###教师查询学生论文信息
+GET {{baseUrl}}/teacherSearchGraduation/1/3
+
+### 教师审核毕业论文
+POST {{baseUrl}}/auditGraduation/1820070129
+Content-Type: application/json
+
+{
+    "teacherName":"甘老师",
+    "auditStatus":"已审核",
+    "advice":"你好"
+}
+
+###教师修改论文审核意见
+PUT {{baseUrl}}/uploadGraduation/1820070129
+Content-Type: application/json
+
+{
+    "teacherName":"甘老师",
+    "auditStatus":"1",
+    "advice":"写的很好下此不要在写了"
+}
